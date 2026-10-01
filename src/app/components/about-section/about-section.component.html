@@ -1,0 +1,95 @@
+<section id="about" class="relative py-20 lg:py-32 bg-[#091510] text-[#E8ECE9] overflow-hidden">
+  <!-- Background ambient accents -->
+  <div class="absolute top-1/2 left-0 w-96 h-96 bg-emerald-800/10 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Pre-title -->
+    <div class="flex items-center gap-3 mb-4">
+      <span class="w-8 h-[1px] bg-[#C8A97E]"></span>
+      <span class="text-xs uppercase tracking-[0.25em] text-[#C8A97E] font-semibold">
+        ABOUT RAFA
+      </span>
+    </div>
+
+    <!-- Editorial Split Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      
+      <!-- Left Column: Editorial Brand Image / Botanical Visual -->
+      <div class="lg:col-span-5 relative animate-fade-in-scale">
+        <div class="relative rounded-3xl overflow-hidden glass-panel-dark border border-white/10 p-3 sm:p-4 shadow-2xl">
+          
+          <!-- Image Frame -->
+          <div class="relative aspect-[3/4] rounded-2xl overflow-hidden bg-[#0D2319]">
+            <img
+              src="product-1.jpg"
+              alt="RAFA Product Presentation"
+              class="w-full h-full object-cover opacity-80 hover:scale-105 transition-transform duration-700 ease-out"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#091510] via-transparent to-black/20"></div>
+
+            <!-- Floating Quote Tag -->
+            <div class="absolute bottom-5 left-5 right-5 p-4 rounded-2xl glass-panel-dark border border-white/15 backdrop-blur-md">
+              <p class="font-serif-luxury italic text-sm text-[#E2ECE5] leading-snug">
+                &ldquo;Nature provides the botanical vitality; mindful science guides the craft.&rdquo;
+              </p>
+              <span class="block text-[10px] uppercase tracking-widest text-[#C8A97E] mt-2 font-medium">
+                RAFA Philosophy
+              </span>
+            </div>
+          </div>
+
+          <!-- Decorative Corner Gold Accent -->
+          <div class="absolute -bottom-2 -right-2 w-16 h-16 bg-[#C8A97E]/10 rounded-full blur-xl pointer-events-none"></div>
+        </div>
+      </div>
+
+      <!-- Right Column: Brand Story & Values -->
+      <div class="lg:col-span-7 flex flex-col justify-center animate-fade-in">
+        <!-- Major Editorial Headline -->
+        <h2 class="font-serif-luxury text-3xl sm:text-4xl lg:text-5xl font-normal leading-[1.2] text-white tracking-normal mb-6">
+          Beauty may create the first impression.<br />
+          <span class="italic text-gold-shimmer">Care makes it last.</span>
+        </h2>
+
+        <!-- Core Story Statement -->
+        <div class="border-l-2 border-[#C8A97E]/60 pl-5 mb-8">
+          <p class="text-base sm:text-lg text-[#D5E0DA] font-normal leading-relaxed">
+            &ldquo;RAFA by Farheen Ravindra was born with a vision to create a new generation of Hair &amp; Skin Care — where the timeless wisdom of nature meets the possibilities of the future.&rdquo;
+          </p>
+        </div>
+
+        <p class="text-sm sm:text-base text-[#9BB0A5] leading-relaxed mb-8">
+          For decades, traditional hair colouring was divided between harsh ammonia chemicals and raw, unstandardized mehendi pastes that lacked refinement. RAFA re-envisions this ritual: an exquisite powder formulation enriched with conditioning botanicals that bestows luminous colour while actively nourishing scalp and strands.
+        </p>
+
+        <!-- Focus Pillars Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-8">
+          <div
+            *ngFor="let pillar of focusPillars"
+            class="p-3.5 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-emerald-500/20 hover:bg-white/[0.04] transition-all flex items-start gap-3"
+          >
+            <div class="p-2 rounded-xl bg-emerald-950/60 border border-emerald-800/30 text-emerald-400 shrink-0">
+              <lucide-angular [img]="pillar.icon" class="w-4 h-4"></lucide-angular>
+            </div>
+            <div>
+              <h4 class="text-xs font-semibold text-white tracking-wide">{{ pillar.title }}</h4>
+              <p class="text-[11px] text-[#8DA095] mt-0.5 leading-snug">{{ pillar.desc }}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Corporate Credibility Note -->
+        <div class="flex items-center gap-3 p-3.5 rounded-2xl bg-[#0E241A]/50 border border-emerald-900/40 text-xs text-[#A1B3A9]">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 shrink-0"></span>
+          <span>
+            Proudly brought to you by <strong class="text-white">{{ brandInfo.company }}</strong>, Nagpur, Maharashtra.
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>

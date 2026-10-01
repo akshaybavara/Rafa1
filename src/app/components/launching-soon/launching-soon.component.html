@@ -1,0 +1,96 @@
+<section
+  id="launching-soon"
+  class="relative py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-[#0A1711] via-[#0E241A] to-[#0A1711] border-y border-emerald-900/30 overflow-hidden"
+>
+  <!-- Background Decorative Rings -->
+  <div class="absolute inset-0 pointer-events-none flex items-center justify-center opacity-30">
+    <div class="w-[800px] h-[800px] rounded-full border border-emerald-500/10 animate-pulse"></div>
+    <div class="absolute w-[600px] h-[600px] rounded-full border border-[#C8A97E]/10"></div>
+  </div>
+
+  <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    
+    <!-- Subtle pill -->
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-950/80 border border-[#C8A97E]/30 text-xs text-gold-shimmer mb-4 backdrop-blur-md shadow-sm">
+      <lucide-angular [img]="ClockIcon" class="w-3.5 h-3.5 text-[#C8A97E]"></lucide-angular>
+      <span class="font-semibold tracking-[0.2em] uppercase text-[11px]">EXCLUSIVE PRE-LAUNCH ACCESS</span>
+    </div>
+
+    <!-- Section Heading -->
+    <h2 class="font-display-title text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">
+      LAUNCHING SOON
+    </h2>
+
+    <p class="text-sm sm:text-base text-[#B5C4BC] max-w-2xl mx-auto mb-10 leading-relaxed">
+      We are currently hand-crafting and lab-verifying the debut batches of <span class="text-white font-medium">RAFA Natural Mehendi Hair Colour</span>. Reserve priority access and exclusive debut privileges before public stock goes live.
+    </p>
+
+    <!-- Elegant Countdown Clocks -->
+    <div class="grid grid-cols-4 gap-2.5 sm:gap-4 max-w-2xl mx-auto mb-10">
+      <div
+        *ngFor="let unit of timeUnits"
+        class="relative p-3 sm:p-5 rounded-2xl glass-panel-card border border-white/10 flex flex-col items-center justify-center group hover:border-[#C8A97E]/40 transition-all duration-300"
+      >
+        <div class="absolute inset-0 bg-emerald-600/5 rounded-2xl group-hover:bg-emerald-600/10 transition-colors"></div>
+        <span class="relative font-mono text-2xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight">
+          {{ unit.value }}
+        </span>
+        <span class="relative text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[#A1B3A9] font-medium mt-1">
+          {{ unit.label }}
+        </span>
+      </div>
+    </div>
+
+    <!-- Action Button & Waitlist Social Proof -->
+    <div class="flex flex-col items-center gap-4">
+      <button
+        id="launch-notify-btn"
+        (click)="openNotifyModal.emit()"
+        class="group relative inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full text-base font-semibold tracking-wide text-[#0B1712] bg-gradient-to-r from-[#EAD9BF] via-[#C8A97E] to-[#DFCAAA] hover:from-[#F3E6D2] hover:to-[#D5B588] shadow-xl shadow-emerald-950/50 hover:shadow-gold-shimmer hover:scale-[1.03] active:scale-[0.98] transition-all duration-200 cursor-pointer"
+      >
+        <lucide-angular [img]="BellIcon" class="w-4 h-4 text-[#0B1712]"></lucide-angular>
+        <span>Notify Me</span>
+        <lucide-angular [img]="SparklesIcon" class="w-4 h-4 text-[#0B1712]/70 group-hover:rotate-12 transition-transform"></lucide-angular>
+      </button>
+
+      <div class="flex items-center gap-2 text-xs text-[#8EA096]">
+        <lucide-angular [img]="UsersIcon" class="w-3.5 h-3.5 text-emerald-400"></lucide-angular>
+        <span>Over <strong>3,400+</strong> early members already reserved priority alert</span>
+      </div>
+    </div>
+
+    <!-- 3 VIP Member Perks -->
+    <div class="mt-12 pt-8 border-t border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
+      <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5 flex items-start gap-3">
+        <div class="p-2 rounded-lg bg-emerald-900/50 text-[#C8A97E]">
+          <lucide-angular [img]="GiftIcon" class="w-4 h-4"></lucide-angular>
+        </div>
+        <div>
+          <h4 class="text-xs font-semibold text-white uppercase tracking-wider">Priority Batch Allocation</h4>
+          <p class="text-xs text-[#95A69D] mt-0.5">First access to our strictly limited batch-one release.</p>
+        </div>
+      </div>
+
+      <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5 flex items-start gap-3">
+        <div class="p-2 rounded-lg bg-emerald-900/50 text-emerald-400">
+          <lucide-angular [img]="SparklesIcon" class="w-4 h-4"></lucide-angular>
+        </div>
+        <div>
+          <h4 class="text-xs font-semibold text-white uppercase tracking-wider">Complimentary Applicator Kit</h4>
+          <p class="text-xs text-[#95A69D] mt-0.5">Custom mixing brush and precision sectioning comb included.</p>
+        </div>
+      </div>
+
+      <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5 flex items-start gap-3">
+        <div class="p-2 rounded-lg bg-emerald-900/50 text-emerald-300">
+          <lucide-angular [img]="ShieldIcon" class="w-4 h-4"></lucide-angular>
+        </div>
+        <div>
+          <h4 class="text-xs font-semibold text-white uppercase tracking-wider">Direct Hair Consultation</h4>
+          <p class="text-xs text-[#95A69D] mt-0.5">Complimentary color-matching guidance from the RAFA care team.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

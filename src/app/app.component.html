@@ -1,0 +1,79 @@
+<div class="min-h-screen bg-[#07130E] text-[#E8ECE9] selection:bg-[#2D5A44] selection:text-white relative overflow-x-hidden font-sans-modern">
+  <!-- Sticky Header with Scroll-compaction and macOS glassmorphism -->
+  <app-header (openNotifyModal)="handleOpenNotify()"></app-header>
+
+  <!-- Main Content Sections -->
+  <main>
+    <!-- 1. Hero Section -->
+    <app-hero
+      (openNotifyModal)="handleOpenNotify()"
+      (discoverClick)="handleDiscoverClick()"
+    ></app-hero>
+
+    <!-- 2. Launching Soon & Countdown Experience -->
+    <app-launching-soon (openNotifyModal)="handleOpenNotify()"></app-launching-soon>
+
+    <!-- 3. About RAFA (Editorial Split Layout) -->
+    <app-about-section></app-about-section>
+
+    <!-- 4. Founder Section: Meet Farheen Ravindra -->
+    <app-founder-section></app-founder-section>
+
+    <!-- 5. Flagship Product Showcase -->
+    <app-product-showcase
+      (openNotifyModal)="handleOpenNotify()"
+      (openPatchTestModal)="handleOpenPatchTestModal()"
+    ></app-product-showcase>
+
+    <!-- 6. Interactive Colour Variants -->
+    <app-variant-selector (openNotifyModal)="handleOpenNotify()"></app-variant-selector>
+
+    <!-- 7. Why RAFA (6-Feature Section) -->
+    <app-why-rafa></app-why-rafa>
+
+    <!-- 8. Ingredients Section ("Inspired by Nature") -->
+    <app-ingredients-section></app-ingredients-section>
+
+    <!-- 9. How It Works (4-Step Visual Process) -->
+    <app-how-it-works></app-how-it-works>
+
+    <!-- 10. Premium Positioning ("More Than Colour. A Care Experience.") -->
+    <app-premium-positioning (openNotifyModal)="handleOpenNotify()"></app-premium-positioning>
+
+    <!-- 11. Claim & Transparency Section -->
+    <app-transparency-section></app-transparency-section>
+
+    <!-- 12. Testimonials / Authentic Community Section -->
+    <app-testimonial-section (openNotifyModal)="handleOpenNotify()"></app-testimonial-section>
+
+    <!-- 13. Expandable FAQ Accordion -->
+    <app-faq-section></app-faq-section>
+
+    <!-- 14. Final Botanical Green Gradient CTA -->
+    <app-final-cta (openNotifyModal)="handleOpenNotify()"></app-final-cta>
+  </main>
+
+  <!-- 15. Footer -->
+  <app-footer
+    (openNotifyModal)="handleOpenNotify()"
+    (openPatchTestModal)="handleOpenPatchTestModal()"
+  ></app-footer>
+
+  <!-- Modals & Overlays -->
+  <app-notify-modal
+    [isOpen]="isNotifyModalOpen"
+    (closeModal)="handleCloseNotify()"
+    (success)="handleNotifySuccess($event)"
+  ></app-notify-modal>
+
+  <app-patch-test-modal
+    [isOpen]="isPatchTestModalOpen"
+    (closeModal)="isPatchTestModalOpen = false"
+  ></app-patch-test-modal>
+
+  <!-- Notification Toast -->
+  <app-toast
+    [message]="toastMessage"
+    (closeToast)="toastMessage = null"
+  ></app-toast>
+</div>

@@ -1,0 +1,169 @@
+<footer id="contact"
+  class="relative bg-[#06110C] text-[#E8ECE9] border-t border-emerald-950/60 pt-16 pb-12 overflow-hidden">
+
+  <!-- Ambient background glow -->
+  <div
+    class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-emerald-950/20 rounded-full blur-[140px] pointer-events-none">
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+    <!-- Main Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 pb-14 border-b border-white/10">
+
+      <!-- Brand Col (lg:col-span-5) -->
+      <div class="lg:col-span-5 flex flex-col items-start">
+
+        <!-- Logo -->
+        <div class="flex items-center gap-3 mb-4">
+          <div
+            class="w-10 h-10 rounded-full bg-gradient-to-br from-[#1E4D38] to-[#0E281C] border border-[#C8A97E]/40 flex items-center justify-center shadow-md">
+            <span class="font-display-title text-base tracking-widest text-gold-shimmer font-bold">R</span>
+          </div>
+          <div>
+            <span class="font-display-title text-2xl font-bold tracking-[0.2em] text-white block">
+              RAFA
+            </span>
+            <span class="text-[10px] tracking-[0.25em] uppercase text-[#A1B3A9] font-medium -mt-1 block">
+              by Farheen Ravindra
+            </span>
+          </div>
+        </div>
+
+        <!-- Hindi Tagline -->
+        <p class="font-hindi-tagline text-lg text-gold-shimmer font-medium mb-1">
+          {{ brandInfo.taglineHindi }}
+        </p>
+
+        <!-- English Positioning -->
+        <p class="font-display-title text-sm text-[#A1B3A9] tracking-wider uppercase mb-5">
+          {{ brandInfo.positioningEnglish }}
+        </p>
+
+        <p class="text-xs text-[#8EA096] leading-relaxed max-w-sm mb-6">
+          A brand under <strong class="text-white">{{ brandInfo.company }}</strong>, dedicated to bridging botanical
+          heritage with modern formulation discipline.
+        </p>
+
+        <!-- Social Icons -->
+        <div class="flex items-center gap-3">
+          <a href="#contact"
+            class="w-9 h-9 rounded-full bg-white/5 hover:bg-[#E1306C]/10 border border-white/10 hover:border-[#E1306C]/50 flex items-center justify-center text-[#E1306C] transition-colors"
+            aria-label="Instagram">
+            <lucide-angular [img]="InstagramIcon" class="w-4 h-4"></lucide-angular>
+          </a>
+          <a href="#contact"
+            class="w-9 h-9 rounded-full bg-white/5 hover:bg-[#0A66C2]/10 border border-white/10 hover:border-[#0A66C2]/50 flex items-center justify-center text-[#0A66C2] transition-colors"
+            aria-label="LinkedIn">
+            <lucide-angular [img]="LinkedinIcon" class="w-4 h-4"></lucide-angular>
+          </a>
+          <a href="#contact"
+            class="w-9 h-9 rounded-full bg-white/5 hover:bg-[#1877F2]/10 border border-white/10 hover:border-[#1877F2]/50 flex items-center justify-center text-[#1877F2] transition-colors"
+            aria-label="Facebook">
+            <lucide-angular [img]="FacebookIcon" class="w-4 h-4"></lucide-angular>
+          </a>
+          <a href="#contact"
+            class="w-9 h-9 rounded-full bg-white/5 hover:bg-[#FF0000]/10 border border-white/10 hover:border-[#FF0000]/50 flex items-center justify-center text-[#FF0000] transition-colors"
+            aria-label="YouTube">
+            <lucide-angular [img]="YoutubeIcon" class="w-4 h-4"></lucide-angular>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Navigation (lg:col-span-3) -->
+      <div class="lg:col-span-3">
+        <h4 class="text-xs font-bold uppercase tracking-widest text-[#C8A97E] mb-4">
+          Explore RAFA
+        </h4>
+        <ul class="space-y-2.5 text-xs text-[#B5C4BC]">
+          <li *ngFor="let link of navLinks">
+            <a [href]="link.href" class="hover:text-white hover:underline underline-offset-4 transition-colors">
+              {{ link.label }}
+            </a>
+          </li>
+          <li>
+            <button (click)="openPatchTestModal.emit()"
+              class="text-left hover:text-white hover:underline underline-offset-4 transition-colors text-emerald-300">
+              Patch Test Guidelines
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Corporate Office Information (lg:col-span-4) -->
+      <div class="lg:col-span-4 space-y-4 text-xs text-[#9BB0A5]">
+        <h4 class="text-xs font-bold uppercase tracking-widest text-[#C8A97E]">
+          Corporate Information
+        </h4>
+
+        <div class="p-4 rounded-2xl bg-white/[0.02] border border-white/5 space-y-2">
+          <span class="font-semibold text-white block">
+            {{ brandInfo.company }}
+          </span>
+
+          <div class="flex items-start gap-2 text-[#A1B3A9]">
+            <lucide-angular [img]="MapPinIcon" class="w-4 h-4 text-[#C8A97E] shrink-0 mt-0.5"></lucide-angular>
+            <address class="not-italic leading-relaxed">
+              {{ brandInfo.corporateOffice.addressLine1 }},<br />
+              {{ brandInfo.corporateOffice.city }} – {{ brandInfo.corporateOffice.postalCode }},<br />
+              {{ brandInfo.corporateOffice.state }}, {{ brandInfo.corporateOffice.country }}.
+            </address>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 pt-1 text-[11px] text-[#7A8E83]">
+          <lucide-angular [img]="ShieldCheckIcon" class="w-3.5 h-3.5 text-emerald-500"></lucide-angular>
+          <span>Registered Consumer Wellness Entity &bull; Maharashtra, India</span>
+        </div>
+
+        <!-- Quick Notify CTA in Footer -->
+        <div class="pt-2">
+          <button (click)="openNotifyModal.emit()"
+            class="w-full py-2.5 px-4 rounded-xl bg-[#C8A97E]/15 hover:bg-[#C8A97E]/25 border border-[#C8A97E]/40 text-xs font-semibold text-gold-shimmer transition-colors text-center cursor-pointer">
+            Join Pre-Launch VIP Register
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Legal & Copyright Bar -->
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[#6E8076]">
+      <div>
+        &copy; 2026 {{ brandInfo.company }}. All rights reserved. RAFA is a proprietary brand.
+      </div>
+
+      <!-- Legal Links -->
+      <div class="flex items-center gap-4">
+        <button
+          (click)="showAlert('Privacy Policy: RAFA respects your privacy. Information submitted during pre-registration is used strictly for launch alerts and order updates. We do not sell your personal data.')"
+          class="hover:text-white transition-colors cursor-pointer">
+          Privacy Policy
+        </button>
+        <span>&bull;</span>
+        <button
+          (click)="showAlert('Terms & Conditions: RAFA Natural Mehendi Hair Colour is a cosmetic personal-care powder. Always follow packaging instructions and conduct a 48-hour patch test prior to use.')"
+          class="hover:text-white transition-colors cursor-pointer">
+          Terms &amp; Conditions
+        </button>
+        <span>&bull;</span>
+        <button (click)="scrollToTop()"
+          class="inline-flex items-center gap-1 hover:text-white transition-colors cursor-pointer">
+          <span>Back to top</span>
+          <lucide-angular [img]="ArrowUpIcon" class="w-3 h-3"></lucide-angular>
+        </button>
+      </div>
+    </div>
+
+    <!-- Statutory Disclaimers -->
+    <div class="mt-6 pt-4 border-t border-white/5 text-[10px] text-[#55675D] leading-relaxed text-center sm:text-left">
+      <p>{{ brandInfo.disclaimer }}</p>
+      <p class="mt-1">
+        Brand positioning: RAFA is a premium Hair Colour &amp; Care brand combining nature-inspired ingredients with a
+        modern, science-supported approach to everyday hair care. Flagship: RAFA Natural Mehendi Hair Colour (30 g |
+        Black | Brown | Mahogany | Men &amp; Women).
+      </p>
+    </div>
+
+  </div>
+</footer>

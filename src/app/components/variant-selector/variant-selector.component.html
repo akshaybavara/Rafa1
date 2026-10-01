@@ -1,0 +1,187 @@
+<section id="variants" class="relative py-20 lg:py-28 bg-[#091711] text-[#E8ECE9] border-t border-emerald-950/40 overflow-hidden">
+  
+  <!-- Dynamic ambient background glow tied to the selected shade -->
+  <div
+    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[160px] opacity-20 pointer-events-none transition-all duration-700"
+    [style.backgroundColor]="activeVariant.hex"
+  ></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Header -->
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-950/80 border border-[#C8A97E]/30 text-xs text-gold-shimmer mb-4 backdrop-blur-md">
+        <lucide-angular [img]="SparklesIcon" class="w-3.5 h-3.5 text-[#C8A97E]"></lucide-angular>
+        <span class="font-semibold tracking-[0.2em] uppercase text-[11px]">CURATED PALETTE</span>
+      </div>
+
+      <h2 class="font-display-title text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+        Sophisticated Colour Spectrum
+      </h2>
+
+      <p class="text-sm sm:text-base text-[#9BB0A5] mt-3 leading-relaxed">
+        Engineered to celebrate Indian and global hair depths without harsh demarcations. Choose your signature tone.
+      </p>
+    </div>
+
+    <!-- 3 Variant Selector Tabs -->
+    <div class="flex justify-center mb-10">
+      <div class="inline-flex p-1.5 rounded-2xl bg-white/[0.03] border border-white/10 backdrop-blur-lg">
+        <button
+          *ngFor="let variant of productVariants"
+          (click)="selectVariant(variant)"
+          [ngClass]="{
+            'text-white shadow-lg': activeVariant.id === variant.id,
+            'text-[#8EA096] hover:text-white hover:bg-white/5': activeVariant.id !== variant.id
+          }"
+          class="relative flex items-center gap-2.5 px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-semibold tracking-wider uppercase transition-all cursor-pointer"
+        >
+          <div *ngIf="activeVariant.id === variant.id" class="absolute inset-0 rounded-xl bg-gradient-to-r from-emerald-950 via-[#143324] to-emerald-950 border border-[#C8A97E]/50 shadow-inner"></div>
+          <span
+            class="relative z-10 w-3.5 h-3.5 rounded-full border border-white/30 shadow-sm shrink-0"
+            [style.backgroundColor]="variant.hex"
+          ></span>
+          <span class="relative z-10">{{ variant.name }}</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Detailed Variant Interactive Showcase Card -->
+    <div>
+      <div
+        [@fadeSlide]
+
+        class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center glass-panel-card p-6 sm:p-10 lg:p-12 rounded-3xl border border-white/10 shadow-2xl"
+      >
+        <!-- Left: Simulated Hair Strand Tone & Product Visual -->
+        <div class="lg:col-span-5 flex flex-col items-center">
+          
+          <div class="relative w-full max-w-sm aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-b from-[#0F291E] via-[#091C14] to-[#06140E] border-2 border-white/10 p-6 flex flex-col justify-between shadow-2xl group">
+            
+            <!-- Hair Swatch Visual Texture Simulation -->
+            <div
+              class="absolute inset-0 opacity-40 mix-blend-overlay transition-all duration-700"
+              [style.background]="'linear-gradient(135deg, ' + activeVariant.hex + ' 0%, ' + activeVariant.secondaryHex + ' 50%, #000 100%)'"
+            ></div>
+
+            <!-- Top Label -->
+            <div class="relative z-10 flex justify-between items-center text-xs">
+              <span class="px-2.5 py-1 rounded-full bg-black/50 border border-white/10 text-[#C8A97E] text-[10px] tracking-widest uppercase">
+                {{ activeVariant.tag }}
+              </span>
+              <span class="font-hindi-tagline text-emerald-200 text-sm">
+                {{ activeVariant.hindiName }}
+              </span>
+            </div>
+
+            <!-- Visual Packaging Miniature -->
+            <div class="relative z-10 my-auto flex flex-col items-center text-center py-4">
+              <div class="w-36 h-48 rounded-xl bg-gradient-to-b from-[#183B2B] via-[#0E281C] to-[#091A12] border border-[#C8A97E]/50 shadow-2xl p-4 flex flex-col justify-between transform group-hover:scale-105 transition-transform duration-300">
+                <div class="flex justify-between items-center text-[8px] text-[#C8A97E]">
+                  <span>RAFA</span>
+                  <span>30g</span>
+                </div>
+
+                <div>
+                  <div class="font-display-title text-base font-bold tracking-widest text-white">RAFA</div>
+                  <div class="text-[8px] uppercase tracking-wider text-gold-shimmer">Natural Mehendi</div>
+                  <div class="w-6 h-[1px] bg-[#C8A97E]/40 mx-auto my-1.5"></div>
+                  <div class="text-xs font-semibold text-white">{{ activeVariant.name }}</div>
+                </div>
+
+                <div class="text-[7px] text-[#8EA096] uppercase tracking-wider text-center">
+                  Ammonia-Free*
+                </div>
+              </div>
+
+              <!-- Swatch Pill -->
+              <div class="mt-4 flex items-center gap-2 px-3 py-1 rounded-full bg-black/60 border border-white/10 text-xs">
+                <span
+                  class="w-3 h-3 rounded-full border border-white/40"
+                  [style.backgroundColor]="activeVariant.hex"
+                ></span>
+                <span class="font-mono text-xs text-white">{{ activeVariant.name }} Profile</span>
+              </div>
+            </div>
+
+            <!-- Bottom specs -->
+            <div class="relative z-10 pt-3 border-t border-white/10 flex justify-between items-center text-[10px] text-[#8EA096]">
+              <span>30 g Powder</span>
+              <span>Ammonia-Free*</span>
+              <span>Full Grey Coverage*</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: Detailed Characteristics -->
+        <div class="lg:col-span-7 flex flex-col justify-center text-left space-y-5">
+          
+          <div>
+            <span class="text-xs uppercase tracking-[0.25em] text-[#C8A97E] font-semibold">
+              SHADE PROFILE
+            </span>
+            <div class="flex items-baseline gap-3 mt-1">
+              <h3 class="font-display-title text-3xl sm:text-4xl font-bold text-white">
+                {{ activeVariant.name }}
+              </h3>
+              <span class="font-hindi-tagline text-lg text-emerald-300">
+                ({{ activeVariant.hindiName }})
+              </span>
+            </div>
+          </div>
+
+          <!-- Short Description -->
+          <p class="text-base sm:text-lg text-[#E2ECE5] leading-relaxed font-light">
+            {{ activeVariant.description }}
+          </p>
+
+          <!-- Undertone & Ideal For Boxes -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div class="p-4 rounded-2xl bg-white/[0.02] border border-white/5">
+              <span class="block text-[11px] uppercase tracking-wider text-[#C8A97E] font-semibold mb-1">
+                Undertone Character
+              </span>
+              <p class="text-xs sm:text-sm text-[#D1DDD6] leading-relaxed">
+                {{ activeVariant.undertone }}
+              </p>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-white/[0.02] border border-white/5">
+              <span class="block text-[11px] uppercase tracking-wider text-emerald-300 font-semibold mb-1">
+                Recommended For
+              </span>
+              <p class="text-xs sm:text-sm text-[#D1DDD6] leading-relaxed">
+                {{ activeVariant.bestFor }}
+              </p>
+            </div>
+          </div>
+
+          <!-- Application Details -->
+          <div class="p-4 rounded-2xl bg-emerald-950/40 border border-emerald-900/30 text-xs text-[#A1B3A9] space-y-1.5">
+            <div class="flex items-center gap-2 text-white font-medium">
+              <lucide-angular [img]="InfoIcon" class="w-4 h-4 text-[#C8A97E]"></lucide-angular>
+              <span>How It Blends With Existing Hair:</span>
+            </div>
+            <p class="pl-6 text-[12px] text-[#A1B3A9]">
+              Natural mehendi coats outer hair cuticles without bleaching melanin. On grey or light hair, it delivers the true shade tone. On naturally dark hair, it introduces deep luminous undertones and lustrous conditioning sheen.
+            </p>
+          </div>
+
+          <!-- Action Button -->
+          <div class="pt-2">
+            <button
+              (click)="openNotifyModal.emit()"
+              class="inline-flex items-center gap-3 px-7 py-3.5 rounded-full text-sm font-semibold tracking-wide text-[#0B1712] bg-gradient-to-r from-[#EAD9BF] via-[#C8A97E] to-[#DFCAAA] hover:from-[#F3E6D2] hover:to-[#D5B588] shadow-lg cursor-pointer transition-all"
+            >
+              <span>Reserve {{ activeVariant.name }} in Launch Batch</span>
+              <lucide-angular [img]="ArrowRightIcon" class="w-4 h-4"></lucide-angular>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,168 @@
+<section
+  id="home"
+  class="relative min-h-[92vh] lg:min-h-screen pt-28 pb-16 lg:pt-36 lg:pb-24 flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#07130E] via-[#0B1C15] to-[#0A1711]"
+>
+  <!-- Subtle Atmospheric Botanical Background Lighting -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <div class="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-emerald-700/10 rounded-full blur-[120px] mix-blend-screen"></div>
+    <div class="absolute bottom-10 -right-20 w-[600px] h-[600px] bg-[#22543D]/15 rounded-full blur-[140px] mix-blend-screen"></div>
+    <div class="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#1E4D38]/12 rounded-full blur-[160px]"></div>
+
+    <!-- Subtle decorative grid/line pattern for modern science feel -->
+    <div
+      class="absolute inset-0 opacity-[0.03]"
+      style="background-image: radial-gradient(#C8A97E 1px, transparent 1px); background-size: 36px 36px;"
+    ></div>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full animate-fade-in">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+      
+      <!-- Left Column: Hero Typography & Messaging -->
+      <div class="lg:col-span-7 flex flex-col items-start text-left">
+        <!-- Premium Badge -->
+        <div
+          id="hero-badge"
+          class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-950/70 border border-emerald-500/25 backdrop-blur-md mb-6 shadow-sm"
+        >
+          <lucide-angular [img]="SparklesIcon" class="w-3.5 h-3.5 text-[#C8A97E]"></lucide-angular>
+          <span class="text-[11px] tracking-[0.2em] font-semibold uppercase text-emerald-200">
+            PREMIUM HAIR COLOUR &amp; CARE
+          </span>
+        </div>
+
+        <!-- Brand Title -->
+        <div class="mb-2">
+          <span class="text-xs uppercase tracking-[0.3em] text-[#C8A97E] font-semibold">
+            RAFA by Farheen Ravindra
+          </span>
+        </div>
+
+        <!-- Hindi Tagline in pristine Devanagari -->
+        <h1 class="font-hindi-tagline text-2xl sm:text-3xl md:text-4xl lg:text-4xl text-[#E8ECE9] font-medium tracking-wide mt-1 mb-3 pt-2 leading-relaxed text-gold-shimmer">
+          {{ brandInfo.taglineHindi }}
+        </h1>
+
+        <!-- Flagship Product Name -->
+        <h2 class="font-display-title text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold tracking-tight text-white leading-[1.15] mb-5">
+          Natural Mehendi <br class="hidden sm:inline" />
+          <span class="text-green-shimmer">Hair Colour</span>
+        </h2>
+
+        <!-- Supporting Copy -->
+        <p class="text-base sm:text-lg text-[#B5C4BC] font-normal leading-relaxed max-w-xl mb-8">
+          &ldquo;Colour your hair while embracing thoughtful everyday care.&rdquo;
+          <span class="block mt-2 text-sm text-[#8EA096]">
+            An elevated synthesis of rich lawsone botanicals, conditioning herbs, and modern formulation discipline.
+          </span>
+        </p>
+
+        <!-- Key Value Micro-pills -->
+        <div class="flex flex-wrap items-center gap-2.5 sm:gap-3 mb-9">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-xs text-[#D1DCD5]">
+            <lucide-angular [img]="LeafIcon" class="w-3.5 h-3.5 text-emerald-400"></lucide-angular>
+            9 Requisite Botanicals
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-xs text-[#D1DCD5]">
+            <lucide-angular [img]="ShieldCheckIcon" class="w-3.5 h-3.5 text-[#C8A97E]"></lucide-angular>
+            Ammonia-Free*
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-xs text-[#D1DCD5]">
+            <lucide-angular [img]="HeartHandshakeIcon" class="w-3.5 h-3.5 text-emerald-300"></lucide-angular>
+            Colour + Care + Poshan
+          </span>
+        </div>
+
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
+          <!-- Primary CTA -->
+          <button
+            id="hero-primary-cta"
+            (click)="openNotifyModal.emit()"
+            class="group relative inline-flex items-center justify-center gap-3 px-7 py-3.5 rounded-full text-sm font-semibold tracking-wide text-[#0B1712] bg-gradient-to-r from-[#EAD9BF] via-[#C8A97E] to-[#DFCAAA] hover:from-[#F3E6D2] hover:to-[#D5B588] shadow-lg shadow-emerald-950/40 hover:shadow-gold-shimmer hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer"
+          >
+            <span>Launching Soon</span>
+            <lucide-angular [img]="ArrowRightIcon" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></lucide-angular>
+          </button>
+
+          <!-- Secondary Subtle CTA -->
+          <button
+            id="hero-secondary-cta"
+            (click)="discoverClick.emit()"
+            class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full text-sm font-medium text-[#C8D6CF] hover:text-white bg-white/[0.05] hover:bg-white/[0.09] border border-white/10 hover:border-emerald-500/30 backdrop-blur-md transition-all duration-200 cursor-pointer"
+          >
+            <span>Discover RAFA</span>
+          </button>
+        </div>
+
+        <!-- Corporate Subtext -->
+        <div class="mt-8 flex items-center gap-2 text-xs text-[#7A8E83]">
+          <lucide-angular [img]="CheckCircle2Icon" class="w-3.5 h-3.5 text-emerald-500/80"></lucide-angular>
+          <span>A Brand under AAHAN VANMORE WELLNESS PVT. LTD.</span>
+        </div>
+      </div>
+
+      <!-- Right Column: Premium Visual Showcase & Mockup Display -->
+      <div class="lg:col-span-5 relative animate-fade-in-scale">
+        <!-- Visual Framing Container -->
+        <div class="relative mx-auto max-w-md lg:max-w-none">
+          
+          <!-- Glow Behind Container -->
+          <div class="absolute -inset-1.5 bg-gradient-to-tr from-[#1E4D38]/50 via-[#C8A97E]/20 to-[#0F2F22]/60 rounded-3xl blur-2xl opacity-70"></div>
+
+          <!-- Main Card with Glassmorphism & High-End Visual -->
+          <div class="relative rounded-3xl overflow-hidden glass-panel-dark border border-white/10 p-4 sm:p-6 shadow-2xl">
+            
+            <!-- Visual Header Strip -->
+            <div class="flex items-center justify-between pb-4 border-b border-white/10 text-xs">
+              <span class="font-display-title text-sm tracking-widest text-gold-shimmer font-semibold">
+                RAFA PRODUCT SHOWCASE
+              </span>
+              <span class="px-2.5 py-0.5 rounded-full bg-emerald-900/60 border border-emerald-600/30 text-[10px] uppercase tracking-wider text-emerald-300">
+                100% Pure &amp; Raw
+              </span>
+            </div>
+
+            <!-- Product Image Composition -->
+            <div class="relative mt-6 mb-4 w-full aspect-[4/5] sm:aspect-square flex items-center justify-center">
+              
+              <!-- Back Image (Natural Henna Powder) -->
+              <div class="absolute w-[70%] left-0 top-0 rounded-2xl overflow-hidden shadow-2xl border border-white/10 transform -rotate-3 hover:-translate-y-2 hover:-rotate-1 transition-all duration-500 ease-out z-10 group">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0B1712]/80 via-transparent to-transparent z-10"></div>
+                <img src="product-2.jpg" alt="Rafa Natural Henna Leaf Powder" class="w-full h-full object-cover aspect-square group-hover:scale-110 transition-transform duration-700">
+              </div>
+
+              <!-- Front Image (Premium Ayurvedic Henna) -->
+              <div class="absolute w-[75%] right-0 bottom-0 rounded-2xl overflow-hidden shadow-2xl border border-[#C8A97E]/30 transform rotate-2 hover:-translate-y-2 hover:rotate-3 transition-all duration-500 ease-out z-20 group">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0B1712]/80 via-transparent to-transparent z-10"></div>
+                <img src="product-1.jpg" alt="Rafa Premium Ayurvedic Henna Hair Color" class="w-full h-full object-cover aspect-square group-hover:scale-110 transition-transform duration-700">
+              </div>
+
+              <!-- Floating Center Element -->
+              <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-[#0B1712]/80 backdrop-blur-md border border-[#C8A97E]/50 flex items-center justify-center shadow-[0_0_30px_rgba(200,169,126,0.2)] z-30 animate-[pulse_4s_ease-in-out_infinite]">
+                <lucide-angular [img]="LeafIcon" class="w-6 h-6 text-[#C8A97E]"></lucide-angular>
+              </div>
+            </div>
+
+            <!-- Bottom Spec Summary Banner -->
+            <div class="mt-4 grid grid-cols-3 gap-2 pt-4 border-t border-white/10 text-center">
+              <div class="p-2 rounded-xl bg-white/[0.02] border border-white/5">
+                <span class="block text-[10px] uppercase text-[#7A8E83] tracking-wider">Format</span>
+                <span class="text-xs font-semibold text-white">Powder</span>
+              </div>
+              <div class="p-2 rounded-xl bg-white/[0.02] border border-white/5">
+                <span class="block text-[10px] uppercase text-[#7A8E83] tracking-wider">Quality</span>
+                <span class="text-xs font-semibold text-emerald-300">Pure &amp; Raw</span>
+              </div>
+              <div class="p-2 rounded-xl bg-white/[0.02] border border-white/5">
+                <span class="block text-[10px] uppercase text-[#7A8E83] tracking-wider">Formula</span>
+                <span class="text-xs font-semibold text-[#C8A97E]">Ayurvedic</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

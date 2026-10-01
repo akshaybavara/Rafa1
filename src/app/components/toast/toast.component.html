@@ -1,0 +1,22 @@
+<div
+  *ngIf="message"
+  @toastFadeSlide
+  class="fixed bottom-6 right-6 z-50 max-w-sm rounded-2xl glass-panel-dark border border-[#C8A97E]/40 p-4 shadow-2xl flex items-start gap-3"
+>
+  <div class="p-2 rounded-xl bg-emerald-950/80 border border-emerald-500/30 text-[#C8A97E] shrink-0">
+    <lucide-angular [img]="SparklesIcon" class="w-4 h-4"></lucide-angular>
+  </div>
+
+  <div class="flex-1 pr-2">
+    <h5 class="text-xs font-semibold text-white uppercase tracking-wider">VIP Notification Reserved</h5>
+    <p class="text-xs text-[#D1DDD6] mt-0.5 leading-snug">{{ message }}</p>
+  </div>
+
+  <button
+    (click)="closeToast.emit()"
+    class="text-[#8EA096] hover:text-white p-1 transition-colors focus:outline-none"
+    aria-label="Close notification"
+  >
+    <lucide-angular [img]="XIcon" class="w-3.5 h-3.5"></lucide-angular>
+  </button>
+</div>

@@ -1,0 +1,84 @@
+<section id="founder" class="relative py-20 lg:py-28 bg-[#0B1812] border-t border-emerald-950/40 text-[#E8ECE9] overflow-hidden">
+  
+  <!-- Soft Glow -->
+  <div class="absolute -top-20 right-1/4 w-80 h-80 bg-[#C8A97E]/5 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Pill -->
+    <div class="text-center mb-4">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-950/70 border border-[#C8A97E]/30 text-xs text-gold-shimmer backdrop-blur-md">
+        <lucide-angular [img]="SparklesIcon" class="w-3.5 h-3.5 text-[#C8A97E]"></lucide-angular>
+        <span class="font-semibold tracking-[0.2em] uppercase text-[11px]">FOUNDER VISION</span>
+      </div>
+    </div>
+
+    <!-- Section Heading -->
+    <h2 class="font-display-title text-3xl sm:text-4xl lg:text-5xl font-bold text-center text-white tracking-tight mb-14">
+      Meet Farheen Ravindra
+    </h2>
+
+    <!-- Founder Card Container -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center glass-panel-card p-6 sm:p-10 lg:p-12 rounded-3xl border border-white/10 shadow-2xl">
+      
+      <!-- Left Column: Dignified, Mindful Editorial Portrait & Signature Aesthetic -->
+      <div class="lg:col-span-5 flex flex-col items-center">
+        <div class="relative w-full max-w-xs sm:max-w-sm aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-b from-[#143324] via-[#0E261A] to-[#07150E] border-2 border-[#C8A97E]/30 p-2 shadow-xl group">
+          
+          <!-- Inner Frame -->
+          <div class="relative w-full h-full rounded-xl overflow-hidden bg-[#0A1811]">
+            <img
+              src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80"
+              alt="Farheen Ravindra - Founder, RAFA"
+              class="w-full h-full object-cover grayscale-[15%] group-hover:scale-105 transition-transform duration-700 ease-out"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#07150E] via-transparent to-transparent opacity-90"></div>
+
+            <!-- Elegant overlay badge -->
+            <div class="absolute bottom-4 left-4 right-4 text-center">
+              <span class="font-display-title text-base font-semibold text-white tracking-wider">
+                Farheen Ravindra
+              </span>
+              <span class="block text-[11px] text-[#C8A97E] tracking-widest uppercase mt-0.5">
+                Founder &amp; Formulator Visionary
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4 flex items-center gap-2 text-xs text-[#8DA095]">
+          <lucide-angular [img]="HeartIcon" class="w-3.5 h-3.5 text-rose-400/80"></lucide-angular>
+          <span>Nutritionist • Yoga Practitioner • Wellness Formulator</span>
+        </div>
+      </div>
+
+      <!-- Right Column: Narrative & Values -->
+      <div class="lg:col-span-7 flex flex-col justify-center text-left">
+        <div class="p-3 w-fit rounded-2xl bg-[#C8A97E]/10 text-[#C8A97E] mb-6">
+          <lucide-angular [img]="QuoteIcon" class="w-6 h-6"></lucide-angular>
+        </div>
+
+        <!-- Exactly Specified Content -->
+        <p class="text-base sm:text-lg lg:text-xl text-[#E2ECE5] leading-relaxed font-light mb-6">
+          &ldquo;Farheen Ravindra brings together her background in nutrition, yoga and lifestyle wellness with a special interest in women’s wellness, hair care and skin care. Through RAFA, her focus is to build a thoughtful personal-care brand centred on quality, responsible communication and everyday care.&rdquo;
+        </p>
+
+        <p class="text-sm text-[#9BB0A5] leading-relaxed mb-8">
+          Believing that genuine self-care should never be rushed or chemically harsh, Farheen envisioned RAFA as an intimate bridge between classical botanical remedies and contemporary scientific standards. The goal is simple: empowering both men and women to colour and nurture their hair without compromise.
+        </p>
+
+        <!-- 4 Pillars of Farheen's Background -->
+        <div class="grid grid-cols-2 gap-3 pt-6 border-t border-white/10">
+          <div *ngFor="let c of credentials" class="p-3 rounded-xl bg-white/[0.02] border border-white/5">
+            <h4 class="text-xs font-semibold text-white">{{ c.label }}</h4>
+            <p class="text-[11px] text-[#8DA095] mt-0.5">{{ c.desc }}</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>

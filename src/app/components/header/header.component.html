@@ -1,0 +1,104 @@
+<header id="main-header" [ngClass]="{
+    'py-3 bg-[#0B1712]/80 backdrop-blur-xl border-b border-emerald-900/30 shadow-lg shadow-black/20': isScrolled,
+    'py-5 bg-transparent border-b border-transparent': !isScrolled
+  }" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between">
+      <!-- Brand Logo / Wordmark -->
+      <a id="brand-logo-link" href="#home" (click)="handleNavClick($event, '#home')"
+        class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-emerald-400/40 rounded-lg p-1">
+        <div
+          class="w-9 h-9 rounded-full bg-gradient-to-br from-[#1E4D38] to-[#0E281C] border border-[#C8A97E]/30 flex items-center justify-center shadow-inner group-hover:border-[#C8A97E]/70 transition-colors">
+          <span class="font-display-title text-sm tracking-widest text-gold-shimmer font-semibold">R</span>
+        </div>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-1.5">
+            <span
+              class="font-display-title text-xl sm:text-2xl font-bold tracking-[0.2em] text-white group-hover:text-emerald-200 transition-colors">
+              RAFA
+            </span>
+            <span class="inline-block w-1 h-1 rounded-full bg-[#C8A97E]"></span>
+          </div>
+          <span class="text-[10px] tracking-[0.25em] uppercase text-[#A1B3A9] font-medium -mt-0.5">
+            by Farheen Ravindra
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav id="desktop-nav" class="hidden lg:flex items-center gap-1 xl:gap-2">
+        <a *ngFor="let link of navLinks" [id]="'nav-link-' + link.id" [href]="link.href"
+          (click)="handleNavClick($event, link.href)" [ngClass]="{
+            'text-white bg-emerald-950/70 border border-emerald-500/20 shadow-sm': activeSection === link.id,
+            'text-[#C5D2CB] hover:text-white hover:bg-white/5': activeSection !== link.id
+          }" class="px-3 py-1.5 rounded-full text-xs xl:text-sm font-medium transition-all duration-200">
+          {{ link.label }}
+        </a>
+      </nav>
+
+      <!-- Right Action: Launching Soon / Notify Me -->
+      <div class="hidden sm:flex items-center gap-3">
+        <div
+          class="hidden md:flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/50 border border-emerald-800/40 text-[11px] text-emerald-300">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+          <span class="tracking-wider uppercase font-semibold">Launching Soon</span>
+        </div>
+
+        <button id="header-notify-btn" (click)="openNotifyModal.emit()"
+          class="group relative inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full text-xs font-semibold tracking-wide text-[#0B1712] bg-gradient-to-r from-[#E6D5B8] via-[#C8A97E] to-[#DFCAAA] hover:from-[#F0E2CA] hover:to-[#D5B588] shadow-md shadow-emerald-950/30 hover:shadow-gold-shimmer hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer">
+          <lucide-angular [img]="BellIcon" class="w-3.5 h-3.5 text-[#0B1712]"></lucide-angular>
+          <span>Notify Me</span>
+        </button>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <div class="flex sm:hidden items-center gap-2">
+        <button id="mobile-notify-compact-btn" (click)="openNotifyModal.emit()"
+          class="p-2 rounded-full bg-[#C8A97E] text-[#0B1712] shadow-sm active:scale-95 cursor-pointer"
+          aria-label="Notify Me">
+          <lucide-angular [img]="BellIcon" class="w-4 h-4"></lucide-angular>
+        </button>
+        <button id="mobile-menu-toggle-btn" (click)="toggleMobileMenu()"
+          class="p-2 rounded-lg bg-emerald-950/70 border border-emerald-800/40 text-[#E8ECE9] hover:text-white focus:outline-none cursor-pointer"
+          aria-label="Toggle Navigation Menu">
+          <lucide-angular *ngIf="mobileMenuOpen" [img]="XIcon" class="w-5 h-5"></lucide-angular>
+          <lucide-angular *ngIf="!mobileMenuOpen" [img]="MenuIcon" class="w-5 h-5"></lucide-angular>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer Menu -->
+  <div *ngIf="mobileMenuOpen" @slideDown
+    class="lg:hidden bg-[#0B1712]/95 backdrop-blur-2xl border-b border-emerald-900/40 px-5 pt-3 pb-6 overflow-hidden">
+    <div class="flex items-center justify-between pb-3 border-b border-white/5 mb-3">
+      <div class="text-xs uppercase tracking-widest text-[#A1B3A9]">Menu</div>
+      <div class="flex items-center gap-1.5 text-[11px] text-emerald-400">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+        <span>Launching Soon</span>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 gap-2">
+      <a *ngFor="let link of navLinks" [href]="link.href" (click)="handleNavClick($event, link.href)" [ngClass]="{
+          'bg-emerald-900/40 text-emerald-200 border border-emerald-700/30': activeSection === link.id,
+          'text-[#D5DDD8] hover:bg-white/5': activeSection !== link.id
+        }" class="px-3.5 py-2.5 rounded-lg text-sm font-medium transition-colors">
+        {{ link.label }}
+      </a>
+    </div>
+
+    <div class="mt-5 pt-4 border-t border-white/10 flex flex-col gap-2">
+      <button (click)="mobileMenuOpen = false; openNotifyModal.emit()"
+        class="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-[#E6D5B8] via-[#C8A97E] to-[#DFCAAA] text-[#0B1712] font-semibold text-sm shadow-md cursor-pointer">
+        <lucide-angular [img]="SparklesIcon" class="w-4 h-4"></lucide-angular>
+        <span>Get VIP Launch Access</span>
+      </button>
+      <p class="text-center text-[11px] text-[#8EA096] pt-1">
+        AAHAN VANMORE WELLNESS PVT. LTD.
+      </p>
+    </div>
+  </div>
+</header>

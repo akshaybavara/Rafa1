@@ -1,0 +1,69 @@
+<section class="relative py-24 lg:py-36 bg-gradient-to-b from-[#0A1711] via-[#0D261B] to-[#07130E] text-[#E8ECE9] overflow-hidden">
+  
+  <!-- Botanical Visual Layer -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-emerald-700/15 rounded-full blur-[160px]"></div>
+    <div class="absolute -bottom-20 right-10 w-[500px] h-[500px] bg-[#C8A97E]/10 rounded-full blur-[140px]"></div>
+    
+    <!-- Subtle botanical leaves silhouette -->
+    <div
+      class="absolute inset-0 opacity-[0.035]"
+      style="background-image: radial-gradient(#C8A97E 1px, transparent 1px); background-size: 40px 40px;"
+    ></div>
+  </div>
+
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center animate-fade-in-scale">
+    
+    <!-- Badge -->
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-950/80 border border-[#C8A97E]/30 text-xs text-gold-shimmer mb-6 backdrop-blur-md shadow-lg">
+      <lucide-angular [img]="LeafIcon" class="w-3.5 h-3.5 text-[#C8A97E]"></lucide-angular>
+      <span class="font-semibold tracking-[0.25em] uppercase text-[11px]">
+        THE FUTURE OF HAIR CARE
+      </span>
+    </div>
+
+    <!-- Headline -->
+    <h2 class="font-display-title text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight mb-4">
+      Your Hair. Your Colour. <br class="hidden sm:inline" />
+      <span class="text-gold-shimmer">Your Care.</span>
+    </h2>
+
+    <!-- Subheading -->
+    <p class="text-base sm:text-xl text-[#B5C8BF] max-w-2xl mx-auto leading-relaxed mb-10 font-light">
+      Experience the next generation of Hair Colour &amp; Care.
+      <span class="block mt-2 text-sm text-[#8EA096]">
+        Natural Mehendi Hair Colour with 9 supportive botanicals. Ammonia-free*, thoughtful, and transparent.
+      </span>
+    </p>
+
+    <!-- Primary CTA Button -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <button
+        id="final-notify-btn"
+        (click)="openNotifyModal.emit()"
+        class="group relative inline-flex items-center justify-center gap-3 px-9 py-4.5 rounded-full text-base font-semibold tracking-wide text-[#0B1712] bg-gradient-to-r from-[#EAD9BF] via-[#C8A97E] to-[#DFCAAA] hover:from-[#F3E6D2] hover:to-[#D5B588] shadow-2xl shadow-emerald-950/70 hover:shadow-gold-shimmer hover:scale-[1.03] active:scale-[0.98] transition-all duration-200 cursor-pointer"
+      >
+        <lucide-angular [img]="BellIcon" class="w-4 h-4 text-[#0B1712]"></lucide-angular>
+        <span>Notify Me When RAFA Launches</span>
+        <lucide-angular [img]="ArrowRightIcon" class="w-4 h-4 text-[#0B1712] group-hover:translate-x-1 transition-transform"></lucide-angular>
+      </button>
+    </div>
+
+    <!-- Trust Badges -->
+    <div class="mt-12 pt-8 border-t border-white/10 flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs text-[#8EA096]">
+      <div class="flex items-center gap-2">
+        <lucide-angular [img]="ShieldCheckIcon" class="w-4 h-4 text-emerald-400"></lucide-angular>
+        <span>Ammonia-Free* Formula</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <lucide-angular [img]="SparklesIcon" class="w-4 h-4 text-[#C8A97E]"></lucide-angular>
+        <span>3 Signature Shades: Black, Brown, Mahogany</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <lucide-angular [img]="LeafIcon" class="w-4 h-4 text-emerald-400"></lucide-angular>
+        <span>Men &amp; Women (30g Pack)</span>
+      </div>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-hindi: 'Rozha One', 'Tiro Devanagari Hindi', serif;
+    --font-display: 'Cinzel', serif;
+  }
+
+  body {
+    font-family: var(--font-sans);
+  }
+}
+
+.font-serif-luxury {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-sans-modern {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+.font-hindi-tagline {
+  font-family: 'Tiro Devanagari Hindi', 'Rozha One', serif;
+}
+
+.font-display-title {
+  font-family: 'Cinzel', 'Cormorant Garamond', serif;
+}
+
+/* Apple macOS-style refined glassmorphism */
+.glass-panel-dark {
+  background: rgba(11, 23, 18, 0.65);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-card {
+  background: radial-gradient(120% 120% at 50% 0%, rgba(30, 65, 48, 0.4) 0%, rgba(12, 26, 20, 0.75) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.glass-panel-card:hover {
+  border-color: rgba(212, 175, 55, 0.25);
+  box-shadow: 0 20px 45px -10px rgba(11, 35, 23, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(200, 218, 208, 0.7);
+  box-shadow: 0 16px 36px -12px rgba(15, 36, 26, 0.08);
+}
+
+/* Gold Champagne shimmer text */
+.text-gold-shimmer {
+  background: linear-gradient(135deg, #E6D5B8 0%, #C8A97E 45%, #EAD9BF 80%, #AF8952 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-green-shimmer {
+  background: linear-gradient(135deg, #E2ECE5 0%, #A8C4B3 50%, #C3DDD0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom scrollbar for sleek experience */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0B1712;
+}
+::-webkit-scrollbar-thumb {
+  background: #1B382B;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2D5A44;
+}
+
+/* Angular animation helpers */
+.animate-fade-in {
+  animation: fadeIn 0.7s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in-scale {
+  animation: fadeInScale 0.8s ease-out forwards;
+}
+
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Staggered animation delays for grid items */
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.1s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.2s; }
+.stagger-5 { animation-delay: 0.25s; }
+.stagger-6 { animation-delay: 0.3s; }
+.stagger-7 { animation-delay: 0.35s; }
+.stagger-8 { animation-delay: 0.4s; }
+.stagger-9 { animation-delay: 0.45s; }

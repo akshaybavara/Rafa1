@@ -1,0 +1,64 @@
+<section class="relative py-20 lg:py-28 bg-[#081610] text-[#E8ECE9] border-t border-emerald-950/40 overflow-hidden">
+  
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+    
+    <!-- Section Pill -->
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-950/80 border border-[#C8A97E]/30 text-xs text-gold-shimmer mb-4 backdrop-blur-md">
+      <lucide-angular [img]="MessageSquareHeartIcon" class="w-3.5 h-3.5 text-[#C8A97E]"></lucide-angular>
+      <span class="font-semibold tracking-[0.2em] uppercase text-[11px]">COMMUNITY &amp; INTEGRITY</span>
+    </div>
+
+    <h2 class="font-display-title text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-4">
+      Real Experiences Coming Soon
+    </h2>
+
+    <p class="text-sm sm:text-base text-[#B5C4BC] max-w-2xl mx-auto leading-relaxed mb-12">
+      In alignment with our strict transparency code, <strong class="text-white">RAFA does not publish simulated or manufactured testimonials</strong>. Genuine feedback from verified batch-one consumers will be published here upon public dispatch.
+    </p>
+
+    <!-- Authentic Pre-launch Community Card -->
+    <div class="glass-panel-card p-8 sm:p-12 rounded-3xl border border-white/10 shadow-2xl relative max-w-3xl mx-auto animate-fade-in">
+      
+      <div class="w-16 h-16 rounded-3xl bg-emerald-950/80 border border-[#C8A97E]/40 mx-auto flex items-center justify-center text-[#C8A97E] mb-6 shadow-inner">
+        <lucide-angular [img]="UsersIcon" class="w-8 h-8"></lucide-angular>
+      </div>
+
+      <span class="text-xs uppercase tracking-[0.25em] text-[#C8A97E] font-semibold block mb-2">
+        IN SEARCH OF FOUNDING VOICES
+      </span>
+
+      <h3 class="font-serif-luxury text-2xl sm:text-3xl text-white font-normal mb-4">
+        Be Among the First 500 to Experience RAFA
+      </h3>
+
+      <p class="text-xs sm:text-sm text-[#9BB0A5] max-w-lg mx-auto leading-relaxed mb-8">
+        Pre-registered community members will be invited to participate in our inaugural feedback circle, receiving custom color-matching guides and direct contact with our formulation panel.
+      </p>
+
+      <!-- Value Highlights -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-left mb-8">
+        <div class="p-3.5 rounded-xl bg-white/[0.02] border border-white/5">
+          <span class="block text-[10px] font-mono uppercase text-[#C8A97E]">Integrity</span>
+          <span class="text-xs font-medium text-white">100% Real Consumer Reviews</span>
+        </div>
+        <div class="p-3.5 rounded-xl bg-white/[0.02] border border-white/5">
+          <span class="block text-[10px] font-mono uppercase text-emerald-300">Privilege</span>
+          <span class="text-xs font-medium text-white">Debut Batch Allocation</span>
+        </div>
+        <div class="p-3.5 rounded-xl bg-white/[0.02] border border-white/5">
+          <span class="block text-[10px] font-mono uppercase text-[#C8A97E]">Dialogue</span>
+          <span class="text-xs font-medium text-white">Direct Founder Consultation</span>
+        </div>
+      </div>
+
+      <button
+        (click)="openNotifyModal.emit()"
+        class="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full text-sm font-semibold tracking-wide text-[#0B1712] bg-gradient-to-r from-[#EAD9BF] via-[#C8A97E] to-[#DFCAAA] hover:from-[#F3E6D2] hover:to-[#D5B588] shadow-lg shadow-emerald-950/50 cursor-pointer transition-all"
+      >
+        <span>Join the Debut Feedback Circle</span>
+        <lucide-angular [img]="SparklesIcon" class="w-4 h-4 text-[#0B1712]"></lucide-angular>
+      </button>
+    </div>
+
+  </div>
+</section>
