@@ -6,7 +6,7 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     
     <!-- Section Header -->
-    <div class="text-center max-w-2xl mx-auto mb-16">
+    <div data-aos="fade-up" class="text-center max-w-2xl mx-auto mb-16">
       <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-950/80 border border-[#C8A97E]/30 text-xs text-gold-shimmer mb-4 backdrop-blur-md">
         <lucide-angular [img]="SparklesIcon" class="w-3.5 h-3.5 text-[#C8A97E]"></lucide-angular>
         <span class="font-semibold tracking-[0.2em] uppercase text-[11px]">THE RAFA DISTINCTION</span>
@@ -25,8 +25,9 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
       <div
         *ngFor="let feature of whyRafaFeatures; let i = index"
-        class="group relative p-7 sm:p-8 rounded-3xl glass-panel-card border border-white/10 hover:border-[#C8A97E]/40 transition-all duration-300 flex flex-col justify-between animate-fade-in-scale"
-        [style.animationDelay]="(i * 80) + 'ms'"
+        data-aos="fade-up"
+        [attr.data-aos-delay]="i * 100"
+        class="group relative p-7 sm:p-8 rounded-3xl glass-panel-card border border-white/10 hover:border-[#C8A97E]/40 transition-all duration-300 flex flex-col justify-between"
       >
         <!-- Top bar with index number and line icon -->
         <div>
@@ -61,7 +62,7 @@
     </div>
 
     <!-- Corporate Trust Banner -->
-    <div class="mt-14 p-6 rounded-3xl bg-gradient-to-r from-emerald-950/60 via-[#0F291E]/60 to-emerald-950/60 border border-emerald-800/30 backdrop-blur-md flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+    <div data-aos="fade-up" class="mt-14 p-6 rounded-3xl bg-gradient-to-r from-emerald-950/60 via-[#0F291E]/60 to-emerald-950/60 border border-emerald-800/30 backdrop-blur-md flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
       <div>
         <h4 class="text-sm font-semibold text-white">
           A Company-Backed Consumer Wellness Brand

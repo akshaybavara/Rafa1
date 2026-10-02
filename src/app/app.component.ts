@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import * as AOS from 'aos';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 import { HeroComponent } from './components/hero/hero.component';
@@ -47,7 +48,15 @@ import { ToastComponent } from './components/toast/toast.component';
   ],
   templateUrl: './app.component.html'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  ngOnInit() {
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false
+    });
+  }
   isNotifyModalOpen = false;
   isPatchTestModalOpen = false;
   toastMessage: string | null = null;

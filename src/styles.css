@@ -118,3 +118,28 @@
 .stagger-7 { animation-delay: 0.35s; }
 .stagger-8 { animation-delay: 0.4s; }
 .stagger-9 { animation-delay: 0.45s; }
+
+/* Smooth Line-by-Line Typing Animation (Looping) */
+.line-1 {
+  display: inline-block;
+  animation: type-line-1 6s infinite ease-in-out;
+}
+
+.line-2 {
+  display: inline-block;
+  animation: type-line-2 6s infinite ease-in-out;
+}
+
+@keyframes type-line-1 {
+  0%, 5% { clip-path: inset(0 100% 0 0); opacity: 0; }
+  6% { clip-path: inset(0 100% 0 0); opacity: 1; }
+  30%, 80% { clip-path: inset(0 0 0 0); opacity: 1; }
+  90%, 100% { clip-path: inset(0 0 0 0); opacity: 0; }
+}
+
+@keyframes type-line-2 {
+  0%, 30% { clip-path: inset(0 100% 0 0); opacity: 0; }
+  31% { clip-path: inset(0 100% 0 0); opacity: 1; }
+  55%, 80% { clip-path: inset(0 0 0 0); opacity: 1; }
+  90%, 100% { clip-path: inset(0 0 0 0); opacity: 0; }
+}

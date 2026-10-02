@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, OnInit, OnDestroy } from '@angular/core';
+import { Component, EventEmitter, Output, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LucideAngularModule, Bell, Sparkles, Clock, Shield, Gift, Users } from 'lucide-angular';
 
@@ -27,6 +27,8 @@ export class LaunchingSoonComponent implements OnInit, OnDestroy {
 
   private intervalId: any;
 
+  constructor(private cdr: ChangeDetectorRef) {}
+
   ngOnInit() {
     // Target date approximately 42 days from now
     const target = new Date(Date.now() + (42 * 24 * 60 * 60 + 14 * 3600 + 36 * 60 + 28) * 1000).getTime();
@@ -47,6 +49,7 @@ export class LaunchingSoonComponent implements OnInit, OnDestroy {
           minutes: String(minutes).padStart(2, '0'), 
           seconds: String(seconds).padStart(2, '0') 
         };
+        this.cdr.detectChanges();
       }
     }, 1000);
   }
