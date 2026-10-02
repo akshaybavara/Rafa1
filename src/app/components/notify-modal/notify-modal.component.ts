@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { LucideAngularModule, X, Sparkles, CheckCircle2, Bell, ShieldCheck, Mail, Phone, User } from 'lucide-angular';
+import { LucideAngularModule, X, Sparkles, CheckCircle2, Bell, ShieldCheck, Mail, Phone, User, MessageCircle, MessageSquare } from 'lucide-angular';
 import { trigger, transition, style, animate, state } from '@angular/animations';
 import { BrandDataService, WaitlistRequest } from '../../services/brand-data.service';
 
@@ -44,6 +44,8 @@ export class NotifyModalComponent {
   readonly MailIcon = Mail;
   readonly PhoneIcon = Phone;
   readonly UserIcon = User;
+  readonly MessageCircleIcon = MessageCircle;
+  readonly MessageSquareIcon = MessageSquare;
 
   formData = {
     name: '',
@@ -55,6 +57,7 @@ export class NotifyModalComponent {
 
   errors: Record<string, string> = {};
   isSubmitting = false;
+  isChoosingApp = false;
   isSuccess = false;
   passNumber = '';
   
@@ -86,6 +89,7 @@ export class NotifyModalComponent {
         agreeWhatsapp: true,
       };
       this.errors = {};
+      this.isChoosingApp = false;
       this.isSuccess = false;
     } else {
       document.body.style.overflow = 'unset';
@@ -127,11 +131,15 @@ export class NotifyModalComponent {
 
   handleSubmit() {
     if (!this.validate()) return;
+    this.isChoosingApp = true;
+  }
 
+  sendDetails(channel: 'whatsapp' | 'sms') {
     this.isSubmitting = true;
     
-    this.brandService.submitWaitlist(this.formData).subscribe(response => {
+    this.brandService.submitWaitlist(this.formData, channel).subscribe(response => {
       this.isSubmitting = false;
+      this.isChoosingApp = false;
       this.isSuccess = true;
       this.passNumber = response.data?.passNumber || `RF-${Math.floor(1000 + Math.random() * 9000)}`;
       this.success.emit(this.formData.name);

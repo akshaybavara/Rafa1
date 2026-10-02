@@ -25,7 +25,7 @@
     </button>
 
     <div class="p-6 sm:p-8">
-      <ng-container *ngIf="!isSuccess; else successState">
+      <ng-container *ngIf="!isSuccess && !isChoosingApp; else secondState">
         <!-- Header -->
         <div class="text-center mb-6">
           <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-950/70 border border-[#C8A97E]/30 text-gold-shimmer text-xs uppercase tracking-widest font-semibold mb-3">
@@ -186,7 +186,45 @@
         </form>
       </ng-container>
 
-      <ng-template #successState>
+      <ng-template #secondState>
+        <ng-container *ngIf="isChoosingApp; else successState">
+          <!-- Choosing App State -->
+          <div class="text-center py-6 animate-fade-in-scale">
+            <h3 class="font-display-title text-2xl font-bold text-white mb-2">Almost Done!</h3>
+            <p class="text-sm text-[#B5C4BC] mb-8">How would you like to send your details to our team?</p>
+            
+            <div class="flex flex-col gap-3 max-w-xs mx-auto">
+              <button 
+                (click)="sendDetails('whatsapp')" 
+                [disabled]="isSubmitting"
+                class="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl font-semibold text-sm text-white bg-[#25D366] hover:bg-[#1DA851] shadow-lg shadow-[#25D366]/20 transition-all cursor-pointer disabled:opacity-50"
+              >
+                <div *ngIf="isSubmitting" class="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                <lucide-angular *ngIf="!isSubmitting" [img]="MessageCircleIcon" class="w-5 h-5"></lucide-angular>
+                Send via WhatsApp
+              </button>
+              
+              <button 
+                (click)="sendDetails('sms')" 
+                [disabled]="isSubmitting"
+                class="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl font-semibold text-sm text-white bg-blue-500 hover:bg-blue-600 shadow-lg shadow-blue-500/20 transition-all cursor-pointer disabled:opacity-50"
+              >
+                <lucide-angular *ngIf="!isSubmitting" [img]="MessageSquareIcon" class="w-5 h-5"></lucide-angular>
+                Send via Text (SMS)
+              </button>
+            </div>
+            
+            <button 
+              (click)="isChoosingApp = false" 
+              [disabled]="isSubmitting"
+              class="mt-6 text-xs text-[#7A8E83] hover:text-white transition-colors cursor-pointer"
+            >
+              Back to edit details
+            </button>
+          </div>
+        </ng-container>
+        
+        <ng-template #successState>
         <!-- Success State -->
         <div class="text-center py-6 animate-fade-in-scale">
           <div class="w-16 h-16 rounded-full bg-emerald-900/40 border border-emerald-500/40 mx-auto flex items-center justify-center text-emerald-400 mb-4 shadow-lg shadow-emerald-900/30">
@@ -217,6 +255,7 @@
             Done
           </button>
         </div>
+        </ng-template>
       </ng-template>
     </div>
   </div>
